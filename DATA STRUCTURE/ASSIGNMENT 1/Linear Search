@@ -1,0 +1,27 @@
+/// RIFAT SHARIAR SAKIL
+/// REG NO. 2019831024
+
+#include<stdio.h>
+#include<limits.h>
+int main()
+{
+    int len;
+    printf("ASSIGNMENT: 1\n\n"); ///find the smallest data and the largest data of the dataset
+
+    printf("ENTER THE SIZE OF THE ARRAY: ");
+    scanf("%d",&len);
+
+    int arr[len];
+    printf("ENTER THE VALUES OF THE ARRAY: ");
+    for(int i=0;i<len;i++) scanf("%d",&arr[i]);
+
+
+    int mx=INT_MAX,mn=INT_MIN;
+    for(int i=0;i<len;i++)
+    {
+        if(arr[i]<mx) mx = arr[i];
+        if(arr[i]>mn) mn = arr[i];
+    }
+    printf("\n\nSMALLEST DATA OF THE ARRAY IS: %d\n",mx);
+    printf("LARGEST DATA OF THE ARRAY IS: %d\n",mn);
+}
