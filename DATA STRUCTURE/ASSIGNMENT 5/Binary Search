@@ -1,0 +1,50 @@
+///RIFAT SHARIAR SAKIL
+///2019831024
+
+#include<stdio.h>
+
+void sol(int arr[],int len, int val);
+
+int main()
+{
+    int arr[1000],len,val;
+    printf("ASSIGNMENT: 5\n\n");
+
+    printf("ENTER THE SIZE OF THE ARRAY: ");
+    scanf("%d",&len);
+
+    printf("ENTER THE ARRAY ELEMENTS: ");
+    for(int i=0;i<len; i++) scanf("%d",&arr[i]);
+
+    printf("ENTER THE ELEMENT THAT NEER TO BE SEARCHED: ");
+    scanf("%d",&val);
+    sol(arr,len,val);
+}
+
+void sol(int arr[],int len, int val)
+{
+    printf("\n");
+    int step = 0;
+    int low= 0,up = len-1;
+    int mid = (low+up)/2;
+
+    while(arr[low]<=arr[up])
+    {
+        step++;
+        printf("STEP %d : lower_index = %d, upper_index = %d, mid_value = %d\n", step, arr[low], arr[up], arr[mid]);
+        if(val==arr[mid]) break;
+        if(val>arr[mid]) low = mid+1;
+        else up = mid-1;
+        mid = (low+up)/2;
+    }
+    
+    printf("\n\n");
+    
+    if(arr[low]>arr[up]){printf("ELEMENT IS NOT IN THE ARRAY\n");
+    printf("BINARY SEARCH FINISHED AT STEP: %d\n",step);return;}
+    
+    printf("THE INDEX OF THE ELEMENT IN THE ARRAY IS: %d (0 based)\n",mid);
+    printf("TOTAL NUMBER OF STEPS ARE: %d\n",step);
+
+
+}
