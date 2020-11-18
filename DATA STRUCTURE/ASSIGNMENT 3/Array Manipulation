@@ -1,0 +1,74 @@
+///RIFAT SHARIAR SAKIL
+///2019831024
+
+#include<stdio.h>
+#include<limits.h>
+#include<string.h>
+
+void Insert(int arr[],int val);
+void Delete(int arr[],int val);
+
+
+int main()
+{
+    printf("ASSIGNMENT:: 3\n\n");
+
+    ///ASSIGNMENT 3.1
+    int arr[10]={1,2,3,4,6,6,7,8,9,10};
+    printf("ASSIGNMENT-> 3.1:\nTHE INITIAL ARRAY IS: ");
+    for(int i=0;i<10;i++) printf("%d ",arr[i]);
+    printf("\n");
+
+    int val;
+    printf("ENTER THE VALUE YOU WANT TO INSERT: ");
+    scanf("%d",&val);
+    Insert(arr,val);
+
+    ///ASSIGNMENT 3.2
+    printf("\n\nASSIGNMENT-> 3.2:\nTHE INITIAL ARRAY IS: ");
+    for(int i=0;i<10;i++) printf("%d ",arr[i]);
+    printf("\n");
+
+    printf("ENTER THE VALUE YOU WANT TO DELETE: ");
+    scanf("%d",&val);
+    Delete(arr,val);
+
+}
+void Insert(int arr[],int val)
+{
+    printf("ARRAY AFTER INSERTING THE VALUE IS: ");
+
+    int noya[11],i;
+    for(i=0;i<10;i++)
+    {
+
+        if(val<arr[i]) break;
+        else noya[i] = arr[i];
+    }
+  noya[i] = val;
+  for(int j=i+1;j<11;j++)  noya[j] = arr[j-1];
+  for(i=0; i<11; i++) printf("%d ",noya[i]);
+  printf("\n");
+
+}
+
+void Delete(int arr[],int val)
+{
+
+  int noya[9],i;
+    for(i=0;i<10;i++)
+    {
+
+        if(val==arr[i]) break;
+        else noya[i] = arr[i];
+    }
+    if(i==10)
+    {
+        printf("THE VALUE IS NOT IN THE ARRAY!\n");
+        return;
+    }
+    printf("ARRAY AFTER DELETING THE VALUE IS: ");
+    for(int j=i+1;j<10;j++)  noya[j-1] = arr[j];
+    for(i=0; i<9; i++) printf("%d ",noya[i]);
+    printf("\n");
+}
