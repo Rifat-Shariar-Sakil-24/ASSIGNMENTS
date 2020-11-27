@@ -1,0 +1,24 @@
+///RIFAT SHARIAR SAKIL
+///2019831024
+
+#include<stdio.h>
+#define ull unsigned long long
+
+ull factorial(ull num)
+{
+    if(num == 1)return 1;
+    return num * factorial(num - 1);
+}
+
+int main()
+{
+    printf("ASSIGNMENT: 6\n\n");
+
+    ull num,ans;
+    printf("ENTER TE NUMBER: ");
+
+    scanf("%llu",&num);
+    ans = factorial(num);
+    printf("%llu! -> %llu\n",num,ans);
+    
+}
