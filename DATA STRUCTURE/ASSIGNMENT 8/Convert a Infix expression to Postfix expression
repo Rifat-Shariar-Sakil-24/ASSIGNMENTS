@@ -1,0 +1,128 @@
+///RIFAT SHARIAR SAKIL
+///2019831024
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<ctype.h>
+
+int top=0,mx=1000,flag=0;
+char stack[1000];
+
+void push(char c)
+{
+    stack[top]=c;
+    top++;
+}
+void plus()
+{
+
+    if(top)
+        {
+            while(top!=0 && stack[top-1]!='(')
+            {
+
+               if(flag==0)printf(" %c",stack[top-1]);
+               else printf("%c ",stack[top-1]);
+                top--;
+
+            }
+        }
+       stack[top]='+';top++;
+}
+void minus()
+{
+    if(top)
+        {
+            while(top!=0 && stack[top-1]!='(')
+            {
+                if(flag==0)printf(" %c",stack[top-1]);
+                else printf("%c ",stack[top-1]);
+                top--;
+
+            }
+        }
+    stack[top]='-';top++;
+}
+
+void divi()
+{
+     if(top)
+        {
+            while(top!=0 && stack[top-1]!='(' && stack[top-1]!='+' && stack[top-1]!='-' )
+            {
+              if(flag==0)  printf(" %c",stack[top-1]);
+              else printf("%c ",stack[top-1]);
+                top--;
+
+            }
+        }
+    stack[top]='/';top++;
+}
+void mul()
+{
+     if(top)
+        {
+            while(top!=0 && stack[top-1]!='(' && stack[top-1]!='+' && stack[top-1]!='-')
+            {
+               if(flag==0) printf(" %c",stack[top-1]);
+               else printf("%c ",stack[top-1]);
+                top--;
+
+            }
+        }
+    stack[top]='*';top++;
+
+}
+
+void pow()
+{
+    stack[top]='^';top++;
+}
+void back()
+{
+
+    while(stack[top-1]!='(')
+    {
+        printf(" %c",stack[top-1]);
+        top--;
+    }
+    top--;
+}
+int main()
+{
+    printf("ASSIGNMENT: 8\n\n");
+
+    printf("ENTER THE INFIX EXPRESSION(without any space): ");
+    char xp[1000];
+    scanf("%[^\n]s", xp);
+
+    int len = strlen(xp);
+    xp[len]='\0';
+    for(int i=0;i<=len;i++)
+    {
+        char c = xp[i];
+
+
+        if(isalnum(c)) {printf("%c",xp[i]);flag=0;continue;}
+
+
+        if(c=='(') push(c);
+        else if(c=='+')plus();
+        else if(c=='-')minus();
+        else if(c=='/')divi();
+         else if(c=='*')mul();
+         else if(c=='^')pow();
+         else if(c==')') back();if(flag==0) {printf(" ");flag=1;}
+
+
+    }
+
+    while(top!=0)
+    {
+        printf("%c ",stack[top-1]);
+        top--;
+    }
+
+}
+ 
